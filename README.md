@@ -18,7 +18,11 @@ It supports streaming responses and tool calls, and maps `max_tokens` to `max_co
 
 ### Why this exists
 
-This proxy lets you use any coding agent you prefer while centralizing inference in Snowflake Cortex, keeping AI and data governance in the Snowflake Horizon catalog. It also enables Snowflake MCP server integrations so agents can access native capabilities without leaving the Snowflake security perimeter, and you get centralized billing across all models Snowflake supports.
+This proxy lets you use any coding agent you prefer while centralizing inference in Snowflake Cortex, keeping AI and data governance in the Snowflake Horizon catalog.
+
+ In combination with the Snowflake MCP server integrations these agents can also access further Snowflake native capabilities and data without leaving the Snowflake security perimeter.
+ 
+ Finally you get centralized billing across all models Snowflake supports.
 
 ```
                     +---------------------------+
