@@ -91,10 +91,6 @@ Steps:
    - `snowflake.default_model`
 6) Run: `cortex-proxy --config <path-to-config>`
 
-```bash
-cd cortex-proxy-rs
-cargo build --release
-```
 
 Create a config file (do **not** commit your PAT). Default model is `claude-opus-4-5`.
 
