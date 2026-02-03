@@ -72,6 +72,12 @@ Snowflake Cortex model IDs for Opus (from the Cortex REST API docs):
 - `claude-4-opus` (Opus 4)
 - `claude-opus-4-5` (Opus 4.5)
 
+### Claude Code (via proxy)
+
+After setting the `ANTHROPIC_BASE_URL` and `ANTHROPIC_API_KEY` env vars above, launch Claude Code and select your Claude model.
+
+![Claude Code via Cortex Proxy](claude_code_cortex_proxy.png)
+
 ### Mistral Vibe (use the proxy)
 
 Mistral Vibe reads `config.toml` from `./.vibe/config.toml` or `~/.vibe/config.toml`.
@@ -104,6 +110,8 @@ export CORTEX_PROXY_API_KEY=dummy-key-proxy-handles-auth
 ```
 
 If you see `403 Forbidden` with `Model <name> not allowed`, switch to a model your Snowflake account has access to (e.g., `claude-4-sonnet`).
+
+![Mistral Vibe via Cortex Proxy](mistral_vibe_code_cortex_proxy.png)
 
 ### Test Claude (Anthropic API)
 
@@ -159,6 +167,8 @@ Then run:
 ```bash
 opencode
 ```
+
+![OpenCode via Cortex Proxy](Opencode_cortex_proxy.png)
 
 ### Continue.dev example
 
