@@ -16,6 +16,36 @@ It includes a high‑performance Rust proxy that translates:
 
 It supports streaming responses and tool calls, and maps `max_tokens` to `max_completion_tokens`.
 
+### Why this exists
+
+This proxy lets you use any coding agent you prefer while centralizing inference in Snowflake Cortex, keeping AI and data governance in the Snowflake Horizon catalog. It also enables Snowflake MCP server integrations so agents can access native capabilities without leaving the Snowflake security perimeter, and you get centralized billing across all models Snowflake supports.
+
+```
+                    +---------------------------+
+                    |   Coding Agents / IDEs   |
+                    |  Claude Code / OpenCode  |
+                    |  Continue / Mistral Vibe |
+                    +-------------+-------------+
+                                  |
+                                  v
+                         +------------------+
+                         |  Cortex Proxy    |
+                         |  OpenAI/Anthropic|
+                         +--------+---------+
+                                  |
+                                  v
+         +------------------------+------------------------+
+         |        Snowflake Cortex (LLM Inference)         |
+         |  Models + Governance + Centralized Billing      |
+         +------------------------+------------------------+
+                                  |
+                                  v
+         +------------------------+------------------------+
+         |   Snowflake MCP Servers (Native Integrations)   |
+         |   Horizon Security Perimeter + Data Controls    |
+         +-------------------------------------------------+
+```
+
 ### Quick start
 
 ```bash
@@ -238,6 +268,8 @@ tabAutocompleteModel:
   apiKey: dummy-key-proxy-handles-auth
   useLegacyCompletionsEndpoint: false
 ```
+
+![Continue.dev via Cortex Proxy](continue_dev_cortex_proxy.png)
 
 ### Config file search order
 
