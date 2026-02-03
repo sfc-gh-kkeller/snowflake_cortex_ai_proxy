@@ -9,17 +9,36 @@
 # Or environment: CORTEX_PROXY_CONFIG=/path/to/config.toml
 
 [proxy]
+# Port to listen on
 port = 8766
+
+# Log level: "debug", "info", or "quiet"
 log_level = "info"
+
+# Request timeout in seconds (default: 300 = 5 minutes)
+# Increase for large file operations
 timeout_secs = 300
+
+# HTTP connection pool size per host (default: 10)
+# Increase if making many concurrent requests
 connection_pool_size = 10
 
 [snowflake]
+# Your Snowflake account's Cortex API URL
+# Format: https://<account>.snowflakecomputing.com/api/v2/cortex/v1
 base_url = "https://<account>.snowflakecomputing.com/api/v2/cortex/v1"
+
+# Programmatic Access Token (PAT)
+# Generate at: Snowflake UI -> Admin -> Security -> Programmatic Access Tokens
 pat = "<YOUR_PAT>"
+
+# Default model when the client doesn't specify one
+# Available: claude-4-sonnet, claude-4-opus, claude-opus-4-5, claude-haiku-4-5, claude-3-5-sonnet
 default_model = "claude-opus-4-5"
 
+# Optional: explicit model mapping (client model -> Snowflake model)
+# Useful if a client sends a different name or alias
 [model_map]
-# Optional: client model name -> Snowflake model name
 # "claude-opus-4-5" = "claude-opus-4-5"
 # "claude-4-opus" = "claude-opus-4-5"
+# "claude-4-sonnet" = "claude-4-sonnet"
