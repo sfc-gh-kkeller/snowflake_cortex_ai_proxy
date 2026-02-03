@@ -52,6 +52,25 @@ This proxy lets you use any coding agent you prefer while centralizing inference
 
 ### Quick start
 
+### Install (scripts)
+
+#### macOS / Linux
+
+```bash
+curl -sSLO https://raw.githubusercontent.com/sfc-gh-kkeller/snowflake_cortex_ai_proxy/main/install.sh
+chmod +x install.sh
+./install.sh
+```
+
+#### Windows (PowerShell)
+
+```powershell
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sfc-gh-kkeller/snowflake_cortex_ai_proxy/main/install.bat" -OutFile "install.bat"
+.\install.bat
+```
+
+After install, edit the generated config at `~/.config/cortex-proxy/config.toml` (or `%USERPROFILE%\.config\cortex-proxy\config.toml` on Windows) and set your Snowflake `base_url`, `pat`, and `default_model`.
+
 ```bash
 cd cortex-proxy-rs
 cargo build --release
