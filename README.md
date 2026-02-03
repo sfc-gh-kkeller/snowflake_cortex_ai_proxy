@@ -71,6 +71,26 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sfc-gh-kkeller/snowfla
 
 After install, edit the generated config at `~/.config/cortex-proxy/config.toml` (or `%USERPROFILE%\.config\cortex-proxy\config.toml` on Windows) and set your Snowflake `base_url`, `pat`, and `default_model`.
 
+### Manual install (download from releases)
+
+You can also download the binary for your platform from the GitHub Releases page and install it manually.
+
+Steps:
+1) Download the archive that matches your OS/arch from:
+   https://github.com/sfc-gh-kkeller/snowflake_cortex_ai_proxy/releases
+2) Extract the `cortex-proxy` (or `cortex-proxy.exe`) binary.
+3) Move it into a directory on your PATH:
+   - macOS/Linux: `~/.local/bin`
+   - Windows: `%USERPROFILE%\bin`
+4) Create a config file at:
+   - macOS/Linux: `~/.config/cortex-proxy/config.toml`
+   - Windows: `%USERPROFILE%\.config\cortex-proxy\config.toml`
+5) Copy the sample config `cortex-proxy.example.toml` and edit:
+   - `snowflake.base_url`
+   - `snowflake.pat`
+   - `snowflake.default_model`
+6) Run: `cortex-proxy --config <path-to-config>`
+
 ```bash
 cd cortex-proxy-rs
 cargo build --release
