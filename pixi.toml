@@ -1,0 +1,25 @@
+[project]
+name = "opencode-cortex"
+version = "0.1.0"
+description = "OpenCode with Snowflake Cortex integration"
+channels = ["conda-forge"]
+platforms = ["osx-arm64", "osx-64", "linux-64"]
+
+[tasks]
+# Setup tasks - run this first
+setup = { cmd = "npm install -g bun && cd opencode-patched && bun install", description = "Install bun and OpenCode dependencies" }
+
+# OpenCode tasks
+dev = { cmd = "bun run dev", cwd = "opencode-patched", description = "Run patched OpenCode in dev mode" }
+install = { cmd = "bun install", cwd = "opencode-patched", description = "Install OpenCode dependencies" }
+
+# Proxy tasks (legacy - not needed with patched OpenCode)
+proxy = "python3 cortex-proxy.py"
+
+[dependencies]
+python = ">=3.11"
+nodejs = ">=20"
+curl = "*"
+requests = ">=2.32.5,<3"
+httpx = ">=0.28.1,<0.29"
+rust = ">=1.92.0,<1.93"

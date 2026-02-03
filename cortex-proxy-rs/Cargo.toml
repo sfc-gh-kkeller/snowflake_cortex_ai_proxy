@@ -1,0 +1,25 @@
+[package]
+name = "cortex-proxy"
+version = "1.0.0"
+edition = "2021"
+description = "High-performance Snowflake Cortex proxy for Continue.dev"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+axum = { version = "0.7", features = ["http2"] }
+reqwest = { version = "0.12", features = ["json", "stream", "rustls-tls", "gzip", "http2"], default-features = false }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tower-http = { version = "0.5", features = ["cors"] }
+futures = "0.3"
+bytes = "1"
+hyper = { version = "1", features = ["full"] }
+async-stream = "0.3"
+toml = "0.8"
+dirs = "5"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true

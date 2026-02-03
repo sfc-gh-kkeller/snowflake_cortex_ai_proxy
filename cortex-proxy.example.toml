@@ -1,0 +1,25 @@
+# Cortex Proxy Configuration (example)
+#
+# Copy to one of:
+#   - ~/.config/cortex-proxy/config.toml (recommended)
+#   - ./cortex-proxy.toml
+#   - ./config.toml
+#
+# Or specify with: cortex-proxy --config /path/to/config.toml
+# Or environment: CORTEX_PROXY_CONFIG=/path/to/config.toml
+
+[proxy]
+port = 8766
+log_level = "info"
+timeout_secs = 300
+connection_pool_size = 10
+
+[snowflake]
+base_url = "https://<account>.snowflakecomputing.com/api/v2/cortex/v1"
+pat = "<YOUR_PAT>"
+default_model = "claude-opus-4-5"
+
+[model_map]
+# Optional: client model name -> Snowflake model name
+# "claude-opus-4-5" = "claude-opus-4-5"
+# "claude-4-opus" = "claude-opus-4-5"
