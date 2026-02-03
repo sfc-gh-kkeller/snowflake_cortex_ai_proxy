@@ -3,3 +3,8 @@
 /target/
 /cortex-proxy.toml
 *.log
+
+# Rust build artifacts
+**/target/
+*.rlib
+*.rmeta

@@ -94,15 +94,27 @@ Download from [GitHub Releases](https://github.com/sfc-gh-kkeller/snowflake_cort
 2. Open the DMG and drag `CortexProxy.app` to Applications
 3. Launch from Applications (or Spotlight: "Cortex Proxy")
 4. The app runs in the menu bar (no dock icon)
-5. Click the tray icon → "Start Proxy" to start
+5. **First run**: Edit the config in the GUI window:
+   - Set your `snowflake.base_url` (e.g., `https://your-account.snowflakecomputing.com/api/v2/cortex/v1`)
+   - Set your `snowflake.pat` (Personal Access Token)
+   - Click "Save"
+6. Click "Start" to start the proxy
+
+The macOS app bundle includes both the GUI and the proxy binary - no separate installation needed!
 
 #### Windows Installation
 
-1. Download `cortex-proxy-gui-windows-x64.exe`
-2. Move to a folder of your choice (e.g., `C:\Program Files\CortexProxy\`)
-3. Run the executable
+1. Download both:
+   - `cortex-proxy-gui-windows-x64.exe` (GUI)
+   - `cortex-proxy-windows-x64.exe` (proxy binary)
+2. Place both in the same folder (e.g., `C:\Program Files\CortexProxy\`)
+3. Run `cortex-proxy-gui-windows-x64.exe`
 4. The app appears in the system tray
-5. Click the tray icon → "Start Proxy" to start
+5. **First run**: Edit the config in the GUI window:
+   - Set your `snowflake.base_url`
+   - Set your `snowflake.pat`
+   - Click "Save"
+6. Click "Start" to start the proxy
 
 #### Build from source
 

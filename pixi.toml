@@ -16,6 +16,13 @@ install = { cmd = "bun install", cwd = "opencode-patched", description = "Instal
 # Proxy tasks (legacy - not needed with patched OpenCode)
 proxy = "python3 cortex-proxy.py"
 
+# Proxy build targets (requires rustup + target add for the chosen triple)
+build-macos-intel = { cmd = "cargo build --release --target x86_64-apple-darwin", cwd = "cortex-proxy-rs", description = "Build macOS Intel binary" }
+build-linux-x64 = { cmd = "cargo build --release --target x86_64-unknown-linux-gnu", cwd = "cortex-proxy-rs", description = "Build Linux x86_64 binary" }
+build-linux-arm64 = { cmd = "cargo build --release --target aarch64-unknown-linux-gnu", cwd = "cortex-proxy-rs", description = "Build Linux ARM64 binary" }
+build-windows-x64 = { cmd = "cargo build --release --target x86_64-pc-windows-gnu", cwd = "cortex-proxy-rs", description = "Build Windows x86_64 (GNU) binary" }
+build-windows-arm64 = { cmd = "cargo build --release --target aarch64-pc-windows-gnullvm", cwd = "cortex-proxy-rs", description = "Build Windows ARM64 (GNU/LLVM) binary" }
+
 [dependencies]
 python = ">=3.11"
 nodejs = ">=20"
@@ -23,3 +30,5 @@ curl = "*"
 requests = ">=2.32.5,<3"
 httpx = ">=0.28.1,<0.29"
 rust = ">=1.92.0,<1.93"
+cargo-zigbuild = "*"
+zig = "*"

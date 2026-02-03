@@ -146,6 +146,7 @@ async fn main() {
 
     let app = Router::new()
         .route("/", get(|| async { "OK" }))
+        .route("/health", get(health_handler))
         .route("/v1/messages", post(anthropic_handler))
         .route("/*path", any(openai_handler))
         .layer(cors)
@@ -548,6 +549,16 @@ fn openai_to_anthropic(openai_resp: &Value, model: &str, req_id: u128) -> Value 
             "output_tokens": usage.get("completion_tokens").and_then(|c| c.as_u64()).unwrap_or(0)
         }
     })
+}
+
+// ============ Health Check Handler ============
+
+async fn health_handler(State(state): State<Arc<AppState>>) -> impl IntoResponse {
+    axum::Json(json!({
+        "status": "ok",
+        "service": "cortex-proxy",
+        "default_model": state.default_model,
+    }))
 }
 
 // ============ Anthropic API Handler ============

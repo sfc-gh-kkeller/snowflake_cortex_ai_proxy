@@ -1,0 +1,19 @@
+[package]
+name = "cortex-proxy-gui"
+version = "0.1.0"
+edition = "2021"
+description = "Minimal GUI and tray app for the Snowflake Cortex proxy"
+
+[dependencies]
+egui = "0.33"
+egui-winit = "0.33"
+egui_glow = { version = "0.33", features = ["winit"] }
+glow = "0.16"
+glutin = "0.32"
+glutin-winit = "0.5"
+tray-icon = "0.21"
+image = "0.25"
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
+dirs = "5"
+rfd = "0.15"

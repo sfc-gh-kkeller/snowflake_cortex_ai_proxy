@@ -1,0 +1,9 @@
+# Cortex Proxy GUI Configuration
+# This file stores GUI settings (binary path, config path)
+
+[gui]
+# Path to the cortex-proxy binary
+proxy_binary = "/Users/kevin/DevWork/opencode_cortex/cortex-proxy-rs/target/release/cortex-proxy"
+
+# Path to the proxy config file
+config_path = "/Users/kevin/DevWork/opencode_cortex/cortex-proxy.toml"
