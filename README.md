@@ -75,18 +75,32 @@ After install, edit the generated config at `~/.config/cortex-proxy/config.toml`
 
 The GUI lets you edit the config, start/stop the proxy, and keep it running in the background from the system tray.
 
-#### Download pre-built GUI
+#### Download pre-built bundles
 
 Download from [GitHub Releases](https://github.com/sfc-gh-kkeller/snowflake_cortex_ai_proxy/releases):
 
-| Platform | Download |
-|----------|----------|
-| **macOS (Universal DMG)** | `CortexProxy-macos-universal.dmg` |
-| **macOS (App Bundle)** | `CortexProxy-macos.app.zip` |
-| **macOS ARM64** | `cortex-proxy-gui-macos-arm64` |
-| **macOS Intel** | `cortex-proxy-gui-macos-x64` |
-| **Windows x64** | `cortex-proxy-gui-windows-x64.exe` |
-| **Windows ARM64** | `cortex-proxy-gui-windows-arm64.exe` |
+**Recommended: All-in-one bundles (GUI + Proxy + Config)**
+
+| Platform | Download | Contents |
+|----------|----------|----------|
+| **macOS (Universal)** | `CortexProxy-macos-universal.dmg` | App bundle with GUI + proxy |
+| **Windows x64** | `CortexProxy-windows-x64-bundle.zip` | GUI + proxy + example config |
+| **Windows ARM64** | `CortexProxy-windows-arm64-bundle.zip` | GUI + proxy + example config |
+| **Linux x64** | `cortex-proxy-linux-x64-bundle.tar.gz` | Proxy CLI + example config |
+| **Linux ARM64** | `cortex-proxy-linux-arm64-bundle.tar.gz` | Proxy CLI + example config |
+
+**Individual binaries (advanced)**
+
+| Platform | GUI | Proxy CLI |
+|----------|-----|-----------|
+| macOS ARM64 | `cortex-proxy-gui-macos-arm64` | `cortex-proxy-macos-arm64` |
+| macOS Intel | `cortex-proxy-gui-macos-x64` | `cortex-proxy-macos-x64` |
+| Windows x64 | `cortex-proxy-gui-windows-x64.exe` | `cortex-proxy-windows-x64.exe` |
+| Windows ARM64 | `cortex-proxy-gui-windows-arm64.exe` | `cortex-proxy-windows-arm64.exe` |
+| Linux x64 | — | `cortex-proxy-linux-x64` |
+| Linux ARM64 | — | `cortex-proxy-linux-arm64` |
+
+*Note: Linux GUI requires GTK3 libraries. Build from source on Linux, or use the CLI proxy.*
 
 #### macOS Installation
 
@@ -104,17 +118,24 @@ The macOS app bundle includes both the GUI and the proxy binary - no separate in
 
 #### Windows Installation
 
-1. Download both:
-   - `cortex-proxy-gui-windows-x64.exe` (GUI)
-   - `cortex-proxy-windows-x64.exe` (proxy binary)
-2. Place both in the same folder (e.g., `C:\Program Files\CortexProxy\`)
-3. Run `cortex-proxy-gui-windows-x64.exe`
+1. Download `CortexProxy-windows-x64-bundle.zip` (or ARM64 version)
+2. Extract to a folder (e.g., `C:\Program Files\CortexProxy\`)
+3. Run `cortex-proxy-gui.exe`
 4. The app appears in the system tray
 5. **First run**: Edit the config in the GUI window:
    - Set your `snowflake.base_url`
    - Set your `snowflake.pat`
    - Click "Save"
 6. Click "Start" to start the proxy
+
+#### Linux Installation (CLI only)
+
+1. Download `cortex-proxy-linux-x64-bundle.tar.gz` (or ARM64 version)
+2. Extract: `tar -xzf cortex-proxy-linux-x64-bundle.tar.gz`
+3. Move to PATH: `sudo mv linux-x64-bundle/cortex-proxy /usr/local/bin/`
+4. Create config: `mkdir -p ~/.config/cortex-proxy && cp linux-x64-bundle/cortex-proxy.example.toml ~/.config/cortex-proxy/config.toml`
+5. Edit config: Set `base_url` and `pat`
+6. Run: `cortex-proxy`
 
 #### Build from source
 
