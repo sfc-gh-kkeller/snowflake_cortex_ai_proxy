@@ -71,6 +71,59 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sfc-gh-kkeller/snowfla
 
 After install, edit the generated config at `~/.config/cortex-proxy/config.toml` (or `%USERPROFILE%\.config\cortex-proxy\config.toml` on Windows) and set your Snowflake `base_url`, `pat`, and `default_model`.
 
+### GUI (tray app)
+
+The GUI lets you edit the config, start/stop the proxy, and keep it running in the background from the system tray.
+
+#### Download pre-built GUI
+
+Download from [GitHub Releases](https://github.com/sfc-gh-kkeller/snowflake_cortex_ai_proxy/releases):
+
+| Platform | Download |
+|----------|----------|
+| **macOS (Universal DMG)** | `CortexProxy-macos-universal.dmg` |
+| **macOS (App Bundle)** | `CortexProxy-macos.app.zip` |
+| **macOS ARM64** | `cortex-proxy-gui-macos-arm64` |
+| **macOS Intel** | `cortex-proxy-gui-macos-x64` |
+| **Windows x64** | `cortex-proxy-gui-windows-x64.exe` |
+| **Windows ARM64** | `cortex-proxy-gui-windows-arm64.exe` |
+
+#### macOS Installation
+
+1. Download `CortexProxy-macos-universal.dmg`
+2. Open the DMG and drag `CortexProxy.app` to Applications
+3. Launch from Applications (or Spotlight: "Cortex Proxy")
+4. The app runs in the menu bar (no dock icon)
+5. Click the tray icon → "Start Proxy" to start
+
+#### Windows Installation
+
+1. Download `cortex-proxy-gui-windows-x64.exe`
+2. Move to a folder of your choice (e.g., `C:\Program Files\CortexProxy\`)
+3. Run the executable
+4. The app appears in the system tray
+5. Click the tray icon → "Start Proxy" to start
+
+#### Build from source
+
+```bash
+cd cortex-proxy-gui
+cargo build --release
+```
+
+#### Usage
+
+- **Start/Stop**: Click the tray icon or use the window buttons
+- **Config**: Edit directly in the GUI or click "Browse" to select a config file
+- **Logs**: View proxy output in the logs section
+- **Hide to tray**: Close the window (app keeps running in tray)
+- **Quit**: Use tray menu → "Quit"
+
+Notes:
+- On first run, if no config exists, the GUI creates an example config at `~/.config/cortex-proxy/config.toml`
+- The GUI uses the same config search order as the CLI proxy
+- On macOS, the app runs as a menu bar app (no dock icon)
+
 ### Manual install (download from releases)
 
 You can also download the binary for your platform from the GitHub Releases page and install it manually.
@@ -315,3 +368,14 @@ tabAutocompleteModel:
 - `~/.config/cortex-proxy/config.toml`
 - `./cortex-proxy.toml`
 - or pass `--config` / `CORTEX_PROXY_CONFIG`
+
+### Release packaging (maintainers)
+
+Build the GUI binary and include it in releases alongside the proxy server binaries:
+
+```bash
+cd cortex-proxy-gui
+cargo build --release
+```
+
+The GUI binary will be at `cortex-proxy-gui/target/release/cortex-proxy-gui` (or `.exe` on Windows).
