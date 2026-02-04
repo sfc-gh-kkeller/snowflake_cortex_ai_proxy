@@ -24,31 +24,7 @@ This proxy lets you use any coding agent you prefer while centralizing inference
  
  Finally you get centralized billing across all models Snowflake supports.
 
-```
-                    +---------------------------+
-                    |   Coding Agents / IDEs   |
-                    |  Claude Code / OpenCode  |
-                    |  Continue / Mistral Vibe |
-                    +-------------+-------------+
-                                  |
-                                  v
-                         +------------------+
-                         |  Cortex Proxy    |
-                         |  OpenAI/Anthropic|
-                         +--------+---------+
-                                  |
-                                  v
-         +------------------------+------------------------+
-         |        Snowflake Cortex (LLM Inference)         |
-         |  Models + Governance + Centralized Billing      |
-         +------------------------+------------------------+
-                                  |
-                                  v
-         +------------------------+------------------------+
-         |   Snowflake MCP Servers (Native Integrations)   |
-         |   Horizon Security Perimeter + Data Controls    |
-         +-------------------------------------------------+
-```
+![Architecture](architecture_ai_layer.jpg)
 
 ### Quick start
 
